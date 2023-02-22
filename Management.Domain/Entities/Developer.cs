@@ -10,6 +10,8 @@ namespace Management.Domain.Entities
         public StatusOfDeveloper Status { get; set; }
         public decimal Salary { get; set; }
         public SalaryCondition SalaryStatus { get; set; }
+        public List<Topic> Topics { get; set; }
+        public List<long> MyContactListAsync { get; set; }
         public string Bio { get; set; }
 
     }

@@ -1,6 +1,5 @@
 ﻿using Management.DAL.Repository;
 using Management.Domain.Entities;
-using System;
 namespace MainSpace
 {
     public class Program
@@ -11,7 +10,7 @@ namespace MainSpace
 
             Group group = new Group()
             {
-                Id = 1,
+                Id = 211,
                 Password = "password",
                 Login = "Login",
                 CreatedAt = DateTime.Now,
@@ -19,8 +18,8 @@ namespace MainSpace
                 StuffIds = new List<long> { 12, 32, 4 }
             };
 
-            
-            await repository.UpdateAsync(12,group);
+
+            Console.WriteLine(await repository.UpdateAsync(13, group) == null);
 
         }
     }

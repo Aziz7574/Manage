@@ -3,8 +3,6 @@ using Management.DAL.IRepository;
 using Management.Domain.Commons;
 using Management.Domain.Entities;
 using Newtonsoft.Json;
-using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
 
 namespace Management.DAL.Repository
 {
@@ -34,12 +32,13 @@ namespace Management.DAL.Repository
         public async Task<T> CreateAsync(T model)
         {
             ICollection<T> list = await GetAllAsync();
-            if(list != null) { 
-            list.Add(model);
-            string json = JsonConvert.SerializeObject(list, Formatting.Indented);
-            File.WriteAllText(path, json);  
+            if (list != null)
+            {
+                list.Add(model);
+                string json = JsonConvert.SerializeObject(list, Formatting.Indented);
+                File.WriteAllText(path, json);
             }
-            return model;   
+            return model;
         }
 
 
@@ -92,28 +91,28 @@ namespace Management.DAL.Repository
 
         public async Task<T> UpdateAsync(long oldId, T model)
         {
-             ICollection<T> all = await GetAllAsync();
-            
-             List<T> allData = new List<T>();
+            ICollection<T> all = await GetAllAsync();
 
-             if (all != null) { allData = all.ToList();}
-             
-             T oldObj = await GetByIdAsync(oldId);
+            List<T> allData = new List<T>();
 
-            if(oldObj != null)
+            if (all != null) { allData = all.ToList(); }
+
+            T oldObj = await GetByIdAsync(oldId);
+
+            if (oldObj != null)
             {
-                long indexOfOldObject = allData.IndexOf(oldObj);
+                //long indexOfOldObject = allData.IndexOf(oldObj);
                 allData.Remove(oldObj);
-                allData.Insert((int)indexOfOldObject,model);
-                string json = JsonConvert.SerializeObject(allData, Formatting.Indented);    
+                allData.Add(model);
+                string json = JsonConvert.SerializeObject(allData, Formatting.Indented);
                 File.WriteAllText(path, json);
                 return model;
             }
 
 
             allData.Add(model);
-            string text = JsonConvert.SerializeObject(allData,Formatting.Indented);
-            File.WriteAllText(path, text);  
+            string text = JsonConvert.SerializeObject(allData, Formatting.Indented);
+            File.WriteAllText(path, text);
             return model;
         }
 
@@ -135,8 +134,8 @@ namespace Management.DAL.Repository
             else
             {
                 allData.Remove(obj);
-                string json = JsonConvert.SerializeObject(allData);
-                await File.WriteAllTextAsync(path, json); 
+                string json = JsonConvert.SerializeObject(allData, Formatting.Indented);
+                await File.WriteAllTextAsync(path, json);
                 return true;
             }
         }
