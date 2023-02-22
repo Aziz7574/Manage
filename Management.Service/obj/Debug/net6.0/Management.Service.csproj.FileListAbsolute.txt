@@ -1,0 +1,17 @@
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\bin\Debug\net6.0\Management.Service.deps.json
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\bin\Debug\net6.0\Management.Service.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\bin\Debug\net6.0\Management.Service.pdb
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\bin\Debug\net6.0\Management.DAL.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\bin\Debug\net6.0\Management.Domain.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\bin\Debug\net6.0\Management.DAL.pdb
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\bin\Debug\net6.0\Management.Domain.pdb
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.csproj.AssemblyReference.cache
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.AssemblyInfoInputs.cache
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.AssemblyInfo.cs
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.csproj.CoreCompileInputs.cache
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.csproj.CopyComplete
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\refint\Management.Service.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\Management.Service.pdb
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Service\obj\Debug\net6.0\ref\Management.Service.dll

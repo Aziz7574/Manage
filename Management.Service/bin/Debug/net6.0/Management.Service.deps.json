@@ -6,13 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Management/1.0.0": {
+      "Management.Service/1.0.0": {
         "dependencies": {
           "Management.DAL": "1.0.0",
-          "Management.Service": "1.0.0"
+          "Management.Domain": "1.0.0",
+          "Newtonsoft.Json": "13.0.2"
         },
         "runtime": {
-          "Management.dll": {}
+          "Management.Service.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.2": {
@@ -36,21 +37,11 @@
         "runtime": {
           "Management.Domain.dll": {}
         }
-      },
-      "Management.Service/1.0.0": {
-        "dependencies": {
-          "Management.DAL": "1.0.0",
-          "Management.Domain": "1.0.0",
-          "Newtonsoft.Json": "13.0.2"
-        },
-        "runtime": {
-          "Management.Service.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "Management/1.0.0": {
+    "Management.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -68,11 +59,6 @@
       "sha512": ""
     },
     "Management.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Management.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

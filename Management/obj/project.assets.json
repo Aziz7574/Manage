@@ -38,6 +38,21 @@
         "runtime": {
           "bin/placeholder/Management.Domain.dll": {}
         }
+      },
+      "Management.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Management.DAL": "1.0.0",
+          "Management.Domain": "1.0.0",
+          "Newtonsoft.Json": "13.0.2"
+        },
+        "compile": {
+          "bin/placeholder/Management.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Management.Service.dll": {}
+        }
       }
     }
   },
@@ -81,11 +96,17 @@
       "type": "project",
       "path": "../Management.Domain/Management.Domain.csproj",
       "msbuildProject": "../Management.Domain/Management.Domain.csproj"
+    },
+    "Management.Service/1.0.0": {
+      "type": "project",
+      "path": "../Management.Service/Management.Service.csproj",
+      "msbuildProject": "../Management.Service/Management.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Management.DAL >= 1.0.0"
+      "Management.DAL >= 1.0.0",
+      "Management.Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -122,6 +143,9 @@
           "projectReferences": {
             "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.DAL\\Management.DAL.csproj": {
               "projectPath": "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.DAL\\Management.DAL.csproj"
+            },
+            "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.Service\\Management.Service.csproj": {
+              "projectPath": "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.Service\\Management.Service.csproj"
             }
           }
         }

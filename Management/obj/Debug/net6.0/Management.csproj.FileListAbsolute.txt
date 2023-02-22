@@ -19,3 +19,5 @@ C:\NajotTalim\projects\ProjectManagement\Management\Management\obj\Debug\net6.0\
 C:\NajotTalim\projects\ProjectManagement\Management\Management\obj\Debug\net6.0\Management.pdb
 C:\NajotTalim\projects\ProjectManagement\Management\Management\obj\Debug\net6.0\Management.genruntimeconfig.cache
 C:\NajotTalim\projects\ProjectManagement\Management\Management\obj\Debug\net6.0\ref\Management.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management\bin\Debug\net6.0\Management.Service.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management\bin\Debug\net6.0\Management.Service.pdb

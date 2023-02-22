@@ -1,5 +1,8 @@
 ﻿using Management.DAL.Repository;
 using Management.Domain.Entities;
+using Management.Service.DTO;
+using Management.Service.Services;
+
 namespace MainSpace
 {
     public class Program
@@ -8,18 +11,17 @@ namespace MainSpace
         {
             Repository<Group> repository = new Repository<Group>();
 
-            Group group = new Group()
+            TaskDTO tasktDto = new TaskDTO()
             {
-                Id = 211,
-                Password = "password",
-                Login = "Login",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-                StuffIds = new List<long> { 12, 32, 4 }
+                Id = 1,
+                GivenByUsertId = 12,
+                AssignedToById = 14,
+                Target = "Salom"
             };
 
+            Command k = new Command();
 
-            Console.WriteLine(await repository.UpdateAsync(13, group) == null);
+            await k.CreateAsync(tasktDto);
 
         }
     }

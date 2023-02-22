@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Management.DAL\Management.DAL.csproj" />
+    <ProjectReference Include="..\Management.Service\Management.Service.csproj" />
   </ItemGroup>
 
 </Project>
