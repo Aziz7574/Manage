@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DQqBDbkVBN14oksAIXYuUz70Eh+FdWlMGaphwpsflT6aY3ANkzgwQdE8c6f5tmtLlnZvwYjpEojKGUmTouWAGA==",
+  "success": true,
+  "projectFilePath": "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management\\Management.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Aziz\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

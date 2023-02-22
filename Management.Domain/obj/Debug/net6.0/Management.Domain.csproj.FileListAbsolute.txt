@@ -1,0 +1,12 @@
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\bin\Debug\net6.0\Management.Domain.deps.json
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\bin\Debug\net6.0\Management.Domain.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\bin\Debug\net6.0\Management.Domain.pdb
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\Management.Domain.csproj.AssemblyReference.cache
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\Management.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\Management.Domain.AssemblyInfoInputs.cache
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\Management.Domain.AssemblyInfo.cs
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\Management.Domain.csproj.CoreCompileInputs.cache
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\Management.Domain.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\refint\Management.Domain.dll
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\Management.Domain.pdb
+C:\NajotTalim\projects\ProjectManagement\Management\Management.Domain\obj\Debug\net6.0\ref\Management.Domain.dll
