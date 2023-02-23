@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8QeHZ3a9IDuQYqCmdsHHelFftjC/dJILzTHkRT3GQf21q9UX8+65nvhXwkJUNGgaXfVc29SZGR+kqhwE6GXnJw==",
+  "dgSpecHash": "gmwdaU7NaTZt15Ns7VUbFFyObLd1D/oEOwLa/SlePUszUB+nn/3PHQTy1pa2y/GpAfpAv3hoWe6dZPvvSmWmRA==",
   "success": true,
   "projectFilePath": "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.Presentation\\Management.Presentation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Aziz\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,9 +1,10 @@
-﻿using Management.Service.Commons;
-
-namespace Management.Service.DTO
+﻿namespace Management.Service.DTO
 {
-    public class MessageDTO : CommonForMessageAndTask
+    public class MessageDTO
     {
-
+        public long SentByUsertId { get; set; }
+        public long AcceptedByUserId { get; set; }
+        public string Content { get; set; }
+        public DateTime SendedAt { get; set; }
     }
 }

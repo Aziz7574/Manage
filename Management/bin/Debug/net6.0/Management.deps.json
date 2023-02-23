@@ -9,6 +9,7 @@
       "Management/1.0.0": {
         "dependencies": {
           "Management.DAL": "1.0.0",
+          "Management.Presentation": "1.0.0",
           "Management.Service": "1.0.0"
         },
         "runtime": {
@@ -35,6 +36,14 @@
       "Management.Domain/1.0.0": {
         "runtime": {
           "Management.Domain.dll": {}
+        }
+      },
+      "Management.Presentation/1.0.0": {
+        "dependencies": {
+          "Management.Service": "1.0.0"
+        },
+        "runtime": {
+          "Management.Presentation.dll": {}
         }
       },
       "Management.Service/1.0.0": {
@@ -68,6 +77,11 @@
       "sha512": ""
     },
     "Management.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Management.Presentation/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

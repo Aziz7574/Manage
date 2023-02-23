@@ -4,7 +4,6 @@ namespace Management.Service.DTO
 {
     public class TaskDTO
     {
-        public long Id { get; set; }
         public long GivenByUsertId { get; set; }
         public long AssignedToById { get; set; }
         public string Target { get; set; }

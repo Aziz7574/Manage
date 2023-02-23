@@ -49,7 +49,7 @@ namespace Management.DAL.Repository
         /// returns all data of the model
         /// </summary>
         /// <returns></returns>
-        public async Task<ICollection<T>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync()
         {
             string Text = await File.ReadAllTextAsync(path);
             if (Text.Length == 0)
@@ -58,7 +58,7 @@ namespace Management.DAL.Repository
                 File.WriteAllText(path, Text);
                 return null;
             }
-            ICollection<T> JText = JsonConvert.DeserializeObject<ICollection<T>>(Text);
+            List<T> JText = JsonConvert.DeserializeObject<List<T>>(Text);
             return JText;
         }
 
@@ -74,11 +74,11 @@ namespace Management.DAL.Repository
         {
             try
             {
-                List<T> allData = (await GetAllAsync()).ToList();
+                List<T> allData = await GetAllAsync();
                 T obj = allData.FirstOrDefault(p => p.Id == id);
                 return obj;
             }
-            catch (Exception ex) { return null; }
+            catch { return null; }
         }
 
         /// <summary>
@@ -89,31 +89,25 @@ namespace Management.DAL.Repository
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
 
-        public async Task<T> UpdateAsync(long oldId, T model)
+        public async Task<T> UpdateAsync(long oldUserId, T model)
         {
-            ICollection<T> all = await GetAllAsync();
-
-            List<T> allData = new List<T>();
-
-            if (all != null) { allData = all.ToList(); }
-
-            T oldObj = await GetByIdAsync(oldId);
-
-            if (oldObj != null)
+            var values = await GetAllAsync();
+            var oldUser = values.FirstOrDefault(x => x.Id == oldUserId);
+            if (oldUser != null)
             {
-                //long indexOfOldObject = allData.IndexOf(oldObj);
-                allData.Remove(oldObj);
-                allData.Add(model);
-                string json = JsonConvert.SerializeObject(allData, Formatting.Indented);
-                File.WriteAllText(path, json);
+
+                values.Remove(oldUser);
+                model.UpdatedAt = DateTime.UtcNow;
+
+                values.Add(model);
+                var json = JsonConvert.SerializeObject(values, Formatting.Indented);
+                await File.WriteAllTextAsync(path, json);
                 return model;
             }
 
+            return null;
 
-            allData.Add(model);
-            string text = JsonConvert.SerializeObject(allData, Formatting.Indented);
-            File.WriteAllText(path, text);
-            return model;
+
         }
 
 

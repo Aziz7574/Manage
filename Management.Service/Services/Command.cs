@@ -1,53 +1,70 @@
 ﻿using Management.DAL.DataPaths;
+using Management.DAL.Repository;
 using Management.Domain.Entities;
 using Management.Service.DTO;
 using Management.Service.Helpers;
 using Management.Service.Interfaces;
-using Newtonsoft.Json;
-using System.Reflection;
 
 namespace Management.Service.Services
 {
     public class Command : ITask
     {
         private string path = DataPath.Task;
+        private static long id = 1;
+        private readonly Repository<Topic> repo = new Repository<Topic>();
 
-        public Task<Response<TaskDTO>> CancelAsync(long id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<Response<TaskDTO>> CreateAsync(TaskDTO message)
+
+
+        public async Task<Response<TaskDTO>> SendTaskAsync(TaskDTO message)
         {
             try
             {
 
-                Response<List<TaskDTO>> allTasks = await GetAllTasksByIdAsync(message.AssignedToById);
+                var existTask = await GetParticularTaskAsync(message.GivenByUsertId, message.AssignedToById);
 
-                List<Topic> allDataBase = new List<Topic>();
-
-                allTasks.Result.Add(message);
-
-                foreach (var task in allTasks.Result)
+                if (existTask != null)
                 {
-                    allDataBase.Add(new Topic()
+                    message.Target = existTask.Result.Target + Environment.NewLine + message.Target;
+                    Topic topic = new Topic()
                     {
-                        Id = task.Id,
-                        SenderId = task.GivenByUsertId,
-                        SubscriberId = task.GivenByUsertId,
-                        Target = task.Target,
-                        Status = task.Process,
-                        CreatedAt = DateTime.Now
-                    });
-                }
-                string text = JsonConvert.SerializeObject(allDataBase, Formatting.Indented);
-                await File.WriteAllTextAsync(path, text);
+                        Id = id++,
+                        SenderId = message.AssignedToById,
+                        SubscriberId = message.AssignedToById,
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                        Target = message.Target
+                    };
 
-                var response = new Response<TaskDTO>()
+                    await repo.UpdateAsync(existTask.Result.AssignedToById, topic);
+                    await repo.UpdateAsync(existTask.Result.GivenByUsertId, topic);
+                    Response<TaskDTO> response1 = new Response<TaskDTO>()
+                    {
+                        StatusCode = 200,
+                        Message = "Great",
+                        Result = message
+
+                    };
+                    return response1;
+                }
+                Topic topic1 = new Topic()
+                {
+                    Id = id++,
+                    SenderId = message.AssignedToById,
+                    SubscriberId = message.GivenByUsertId,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Target = message.Target
+                };
+
+                await repo.CreateAsync(topic1);
+                await repo.CreateAsync(topic1);
+                Response<TaskDTO> response = new Response<TaskDTO>()
                 {
                     StatusCode = 200,
                     Message = "Great",
                     Result = message
+
                 };
                 return response;
             }
@@ -70,27 +87,22 @@ namespace Management.Service.Services
 
 
 
-        public async Task<Response<List<TaskDTO>>> GetAllTasksByIdAsync(long senderId)
+        public async Task<Response<List<TaskDTO>>> GetAllTasksByIdAsync(long ownerOfProfileId)
         {
-            string Text = await File.ReadAllTextAsync(path);
-            if (Text.Length == 0)
-            {
-                Text = "[]";
-                File.WriteAllText(path, Text);
-                return null;
-            }
 
-            ICollection<Topic> allTasks = JsonConvert.DeserializeObject<ICollection<Topic>>(Text);
+            List<Topic> allTasks = await repo.GetAllAsync();
+            if (allTasks is null) return null;
 
-            var tasks = allTasks.Where(p => p.SenderId == senderId).ToList();
+            var tasks = allTasks.Where(p => p.SenderId == ownerOfProfileId || p.SubscriberId == ownerOfProfileId).ToList();
+
             Response<List<TaskDTO>> responses = new Response<List<TaskDTO>>();
+
             foreach (var item in tasks)
             {
                 responses.Result.Add(new TaskDTO
                 {
-                    Id = item.Id,
                     AssignedToById = item.Id,
-                    GivenByUsertId = item.Id,   
+                    GivenByUsertId = item.Id,
                     Target = item.Target,
                     Process = item.Status
                 });
@@ -103,22 +115,32 @@ namespace Management.Service.Services
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public Task<Response<TaskDTO>> UpdateAsync(long id, TaskDTO message)
+        public async Task<Response<TaskDTO>> GetParticularTaskAsync(long ownerOfProfileId, long partnerId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var allTasks = await repo.GetAllAsync();
+
+                var tasks = (allTasks.Where(p => p.SenderId == ownerOfProfileId || p.SubscriberId == ownerOfProfileId).Where(p => p.SubscriberId == partnerId || p.SenderId == partnerId)).ToList();
+
+                Response<TaskDTO> taskDto = new Response<TaskDTO>();
+
+                taskDto.Result = new TaskDTO()
+                {
+                    AssignedToById = tasks[0].SenderId,
+                    GivenByUsertId = tasks[0].SubscriberId,
+                    Target = tasks[0].Target,
+                    Process = tasks[0].Status
+                };
+
+                taskDto.StatusCode = 200;
+                taskDto.Message = "Great";
+                return taskDto;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

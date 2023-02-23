@@ -39,6 +39,19 @@
           "bin/placeholder/Management.Domain.dll": {}
         }
       },
+      "Management.Presentation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Management.Service": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Management.Presentation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Management.Presentation.dll": {}
+        }
+      },
       "Management.Service/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -97,6 +110,11 @@
       "path": "../Management.Domain/Management.Domain.csproj",
       "msbuildProject": "../Management.Domain/Management.Domain.csproj"
     },
+    "Management.Presentation/1.0.0": {
+      "type": "project",
+      "path": "../Management.Presentation/Management.Presentation.csproj",
+      "msbuildProject": "../Management.Presentation/Management.Presentation.csproj"
+    },
     "Management.Service/1.0.0": {
       "type": "project",
       "path": "../Management.Service/Management.Service.csproj",
@@ -106,6 +124,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Management.DAL >= 1.0.0",
+      "Management.Presentation >= 1.0.0",
       "Management.Service >= 1.0.0"
     ]
   },
@@ -143,6 +162,9 @@
           "projectReferences": {
             "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.DAL\\Management.DAL.csproj": {
               "projectPath": "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.DAL\\Management.DAL.csproj"
+            },
+            "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.Presentation\\Management.Presentation.csproj": {
+              "projectPath": "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.Presentation\\Management.Presentation.csproj"
             },
             "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.Service\\Management.Service.csproj": {
               "projectPath": "C:\\NajotTalim\\projects\\ProjectManagement\\Management\\Management.Service\\Management.Service.csproj"

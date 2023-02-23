@@ -1,5 +1,6 @@
 ﻿using Management.DAL.Repository;
 using Management.Domain.Entities;
+using Management.Presentation.Developer;
 using Management.Service.DTO;
 using Management.Service.Services;
 
@@ -9,19 +10,39 @@ namespace MainSpace
     {
         static async Task Main()
         {
-            Repository<Group> repository = new Repository<Group>();
+            Repository<Developer> repository = new Repository<Developer>();
 
-            TaskDTO tasktDto = new TaskDTO()
+
+            DeveloperService developerService = new DeveloperService();
+
+            DeveloperDto developerDto = new DeveloperDto()
             {
-                Id = 1,
-                GivenByUsertId = 12,
-                AssignedToById = 14,
-                Target = "Salom"
+                Bio = "Az",
+                Salary = 20000,
+                SalaryStatus = Management.Domain.Enums.SalaryCondition.Paid
             };
 
-            Command k = new Command();
+            Developer developer = new Developer()
+            {
+                Id = 12,
+                FirstName = "Aziz"
+            };
+            TaskDTO taskDt0 = new TaskDTO()
+            {
+                AssignedToById = 12,
+                GivenByUsertId = 12,
+            };
 
-            await k.CreateAsync(tasktDto);
+            var all =  await developerService.GetALlAsync();
+
+            foreach (var item in all.Result)
+            {
+                Console.WriteLine($"{item.Id}");
+            }
+          /*  Presentation present = new Presentation();
+
+            present.CreateOrEditProfile();
+*/
 
         }
     }

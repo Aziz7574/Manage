@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "SenderId": 12,
+    "SubscriberId": 12,
+    "Target": null,
+    "Status": 0,
+    "EstimateOfFinishing": "0001-01-01T00:00:00",
+    "Id": 1,
+    "CreatedAt": "2023-02-23T12:05:59.5038122+05:00",
+    "UpdatedAt": "2023-02-23T12:05:59.5046334+05:00"
+  },
+  {
+    "SenderId": 12,
+    "SubscriberId": 12,
+    "Target": null,
+    "Status": 0,
+    "EstimateOfFinishing": "0001-01-01T00:00:00",
+    "Id": 1,
+    "CreatedAt": "2023-02-23T12:05:59.5038122+05:00",
+    "UpdatedAt": "2023-02-23T12:05:59.5046334+05:00"
+  }
+]
